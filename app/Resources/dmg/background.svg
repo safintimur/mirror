@@ -1,0 +1,14 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="660" height="480" viewBox="0 0 660 480">
+  <defs>
+    <linearGradient id="bg" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0" stop-color="#F7F5F1"/><stop offset="1" stop-color="#ECE9E3"/>
+    </linearGradient>
+  </defs>
+  <rect width="660" height="480" fill="url(#bg)"/>
+  <!-- arrow from Mirror (x 180) to Applications (x 480), icon centres at y 200 -->
+  <g fill="none" stroke="#0A7CC2" stroke-width="3.5" stroke-linecap="round" stroke-linejoin="round" opacity="0.75">
+    <path d="M272 200 H384"/>
+    <path d="M370 186 L386 200 L370 214"/>
+  </g>
+  <text x="330" y="352" font-family="-apple-system, 'SF Pro Text', Helvetica" font-size="14" fill="#6E6A64" text-anchor="middle">Перетащите Mirror в Applications</text>
+</svg>

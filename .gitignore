@@ -1,0 +1,10 @@
+__pycache__/
+*.pyc
+.build/
+build/
+.DS_Store
+.env
+.env.*
+!.env.example
+*.p12
+*.p8

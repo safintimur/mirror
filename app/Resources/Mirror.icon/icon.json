@@ -1,0 +1,67 @@
+{
+  "color-space-for-untagged-svg-colors": "display-p3",
+  "fill": {
+    "solid": "srgb:0.95686,0.94902,0.93333,1.00000"
+  },
+  "fill-specializations": [
+    {
+      "appearance": "dark",
+      "value": {
+        "solid": "srgb:0.10588,0.12157,0.14118,1.00000"
+      }
+    }
+  ],
+  "groups": [
+    {
+      "layers": [
+        {
+          "image-name": "mirror.svg",
+          "name": "mirror",
+          "glass": true,
+          "fill": {
+            "solid": "srgb:0.03922,0.48627,0.76078,1.00000"
+          },
+          "fill-specializations": [
+            {
+              "appearance": "dark",
+              "value": {
+                "solid": "srgb:0.42353,0.79608,1.00000,1.00000"
+              }
+            }
+          ]
+        },
+        {
+          "image-name": "dots.svg",
+          "name": "dots",
+          "glass": true,
+          "fill": {
+            "solid": "srgb:0.08627,0.08627,0.08627,1.00000"
+          },
+          "fill-specializations": [
+            {
+              "appearance": "dark",
+              "value": {
+                "solid": "srgb:0.94902,0.94510,0.93333,1.00000"
+              }
+            }
+          ]
+        }
+      ],
+      "lighting": "individual",
+      "specular": true,
+      "shadow": {
+        "kind": "neutral",
+        "opacity": 0.5
+      },
+      "translucency": {
+        "enabled": false,
+        "value": 0.5
+      }
+    }
+  ],
+  "supported-platforms": {
+    "squares": [
+      "macOS"
+    ]
+  }
+}
