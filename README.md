@@ -1,8 +1,10 @@
-# Mirror
+# Mirror — Codex ↔ Claude Code chat sync for macOS
 
-**Continue the same conversation in Codex or Claude Code.**
+**Switch coding agents. Keep the conversation.**
 
-Mirror is a native macOS menu bar app that keeps local Codex and Claude Code conversations in sync. Two dots, one mirror, one conversation.
+Mirror is a free, open-source macOS menu bar app that syncs local conversations between OpenAI Codex and Anthropic Claude Code. Continue a Codex chat in Claude Code, or a Claude Code session in Codex, with messages and supported tool history.
+
+[Build and install](#build-and-install) · [FAQ](#faq) · [Report a bug](https://github.com/safintimur/mirror/issues)
 
 ![Mirror app icon in different sizes](docs/branding/previews/icon-sizes.png)
 
@@ -20,6 +22,14 @@ Mirror is a native macOS menu bar app that keeps local Codex and Claude Code con
 - Mirrors manual titles and archive/unarchive changes. Deletion is represented by archiving on the other side.
 
 Changes may need an app restart before they appear in its sidebar. Forks and sessions continued under a new ID are separate conversations.
+
+## Continue a conversation in another app
+
+1. Finish the current turn in Codex or Claude Code.
+2. Open Mirror from the menu bar, review the queue, and sync. If an app holds a conversation lock, use Mirror's restart-and-sync flow; it warns about active sessions before closing anything.
+3. Open the mirrored conversation in the other app and continue there. Mirror transfers conversation history; each provider still uses its own account and usage limits.
+
+Manual sync works with automatic sync disabled. Enable automatic synchronization in Settings if you prefer background updates.
 
 ## Requirements
 
@@ -62,6 +72,24 @@ The synchronization engine has no remote service or telemetry. It reads local fi
 | `~/.local/share/codex-claude-mirror` | Mirror's pairing state and incremental index |
 
 Do not remove pairing state as routine cleanup: it records what has already been transferred. Existing data paths and the bundle identifier retain their original names for compatibility.
+
+## FAQ
+
+### Can I sync Codex chats with Claude Code in both directions?
+
+Yes. Mirror creates a corresponding local conversation and transfers completed turns in both directions. It also mirrors manual titles and archive/unarchive changes; deletion becomes an archive on the other side. Supported command, file-change and tool-call records accompany the messages, but not every provider-specific record has an equivalent.
+
+### Why is a chat waiting, or missing from the other app's sidebar?
+
+An open session can hold a writer lock, and desktop apps can cache their conversation lists. Mirror queues blocked work. Its restart-and-sync flow closes the relevant app, applies queued changes, and reopens it. Provider updates can change local formats; see the [engine details](docs/ENGINE.ru.md) for compatibility limits.
+
+### Does Mirror upload my conversations?
+
+Mirror has no remote synchronization service or telemetry. It reads local conversation stores and uses the installed Codex app-server. Codex and Claude retain their own network behavior. See [local data](#local-data) for the directories Mirror accesses.
+
+### Does this sync regular Claude chats or cloud-only Codex tasks?
+
+Mirror works with local Codex and Claude Code sessions, including Claude desktop's Code session registry. It does not sync ordinary Claude web chats or Codex tasks that exist only in the cloud.
 
 ## CLI and development
 
